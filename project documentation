@@ -1,0 +1,37 @@
+Project information:
+Here is the beginning of Project 1 of 3 for this semester: The RC Car
+
+I uploaded a video of all the wiring, so the project can be duplicated
+Please note that the RC car and controller must use the same frequency to work
+The orange car, and it’s controller, 49mhz. The white and black car use 27mhz, and must be used with a 27mhz controller
+
+The source code might look confusing because there are four digital pins that are being used on the Adafruit; from left
+to right, they are: 2, 3, 5, 6, there is no pin 4. Right now, two MyoWares are being used, one to move the car forwards,
+ and one to move it backwards. Two more can be added to move the car left and right
+
+When wearing the MyoWares, the MyoWare boards should not touch your skin. Look for letters on the MyoWare boards. Connect
+ the E and M wires as closely together as possible, to the muscle that you want to use. Connect R anywhere you want, away
+  from the muscle
+
+How the unmodified controller normally works:
+Power is given to the controller board, the functions for sending all buttons pressed to the car are called, and then the
+ buttons open and close the circuit. This means the function cannot repeat until the circuit is closed, and we need to
+ connect Ground from the button to the adafruit
+
+On other controllers (if we buy different brands) might deliver power to the controller board, then use the button to open
+the circuit, then after the button closes the circuit, the function to send the pressed button to the car is called.
+
+You can tell the difference by using a multimeter voltage detector, comparing voltage when the button is pressed or released
+
+How the EMG controller works:
+We took the unmodified controller, removed all the buttons, and connected Ground from all buttons to Digital Input pins.
+ By using programming, we can the pinMode of each pin to either INPUT or OUTPUT.
+
+By setting a pin to OUTPUT, and connecting a button’s Ground to that pin, the circuit is complete, and the button is
+triggered
+
+By setting a pin to INPUT, and connecting a button’s Ground to that pin, the circuit is broken, and the button is released
+
+What to do for other controllers (for other brands):
+Rather than connecting Ground wires from the controller buttons to Adafruit, you will need to connect Power lines.
+Then, you will need to use digitalWrite to send voltage to the button
